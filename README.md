@@ -2,6 +2,7 @@
 A censorship free, peer-to-peer replacement of the world-wide-web. The new internet we will build together.
 
 main features:
+- web2.0 will function unlike all current p2p alternatives.
 - seamless transition from the current world-wide-web.
 - indestructible hosting - similar to bitTorrent files but active websites.
 - massively distributed - so no single point of failure.

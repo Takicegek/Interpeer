@@ -15,6 +15,7 @@ Example uses for Interpeer:
 - getting paid for your spare computer resources.
 - immortal websites that continue from donations or payments without author involvement.
 - visit Interpeer sites anonymously.
+- web2.0 will function unlike all other p2p alternatives.
 - massive computation tasks.
 - storage with distributed multiple redundant copies.
 - onion routing proxy service similar to TOR.
@@ -24,20 +25,19 @@ Example uses for Interpeer:
 Lets just talk about the most interesting example for now, currently websites are hosted on a physical server that is located by its domain name. On Interpeer a website is hosted by many peers which are paid for the service they provide via a virtual currency. In this model any user can install the program and get paid without doing anything.
 
 as for people wanting website hosting, the advantage is easy to see if you look at the disadvantages of the current internet client-server model:
-- single point of failure (server).
+- single point of failure.
 - low anonymity.
-- freedom of speech is not absolute.
+- limited freedom of speech.
 - each visitor downloads from the server not each other.
-- central control of domain names.
-- ISPs control access.
-- low Information security.
-- DOS attack.
+- central control of domain names and ISPs control access.
+- optional data redundancy.
+- hackers can disrupt websites with DOS attacks.
 
 ## 2. Example case
 If wikipedia.org or wikileaks.org used Interpeer, they would see huge advantages:
-- content is addressed individually, so anyone viewing a page could serve it to others wanting to view it (like bitTorrent or IPFS). Meaning Wikipedia would not be paying for much of the traffic.
+- content is addressed individually, so anyone viewing a page could serve it to others wanting to view it (like bitTorrent or IPFS). Meaning Wikipedia would not be paying for much of the traffic and users that are close would get a speed advantage.
 - donations to keep it running would go directly to the hosting account. Meaning it could run autonomously. And donations would be anonymous.
-- If the original authors got “silenced” the website would continue to exist and be user-editable for as long as donations carried on.
+- If the original authors got “silenced” the website would continue to exist and be user-editable for as it was funded.
 
 ## 3. Background
 The internet is more than 30 years old now; we have come a long way since it's inception:
@@ -232,6 +232,8 @@ Also links could point to any other page of the website, meaning google could in
 When someone views a website this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
 
 ### 5.2 plugin
+The plugin will detect URL's in the formats: "*interpeer.net/*" , "*.peer", "*.ipn" or "ipn://*" and then fetch the page via Interpeer.
+
 Due to the way the privacy features of Interpeer work, a vanilla browser would be trusting that the peer sent valid data, which is rather dangerous. So a small plugin for each browser would be essential.
 
 The plugin would handle DNS requests to the Interpeer network, download the page from multiple peers comparing the result, expiry time of DNS information, and reporting malicious peers.
@@ -279,27 +281,26 @@ Once it is agreed that Interpeer will function, then the plan is to use bitcoin'
 Remuneration for the core developers is the same as bitcoin too, if the idea works and is used, the early adopters will be highly rewarded. And the idea is the core developers will the only ones with access until it is released to the general public, so we can 'mine' the early Interpeer blocks. So like share holders, we do well if Interpeer does well, but unlike shareholders, we don't pay any money for shares instead we must make the system work.
 
 ## 8. Alternatives
-Currently there is no system that does exactly the same (dynamic websites that are hosted by peers), but there are systems that are similar.
+Currently there is no system that does dynamic web2.0 websites that are hosted by peers.
 
-Here is a the known ones, and what is different about them:
-* bitTorrent - only hosts static files.
-* Project maelstrom - custom browser needed and static sites.
-* Zeronet.io - sites are only [multiple] author editable.
+Here are other similar projects:
+* "webTorrent" - only hosts static html using bitTorrent.
+* "Project maelstrom" - custom browser needed and static sites.
+* Zeronet.io - sites are only [multiple] author editable not web2.0.
+* morph.is
 
-So no alternative would be able to host for example "wikipedia.org" or "facebook.com" because the visitors can not change the data stored.
+So these can not host for example: wikipedia.org or facebook.com because the visitors can not change the data stored.
 
 ## 9. Future research
 There are a few parts that fall outside of the scope of this white-paper, but could be added to Interpeer later. For example:
 - peer-to-peer search using DHT.
 - Add-ons. One example would be more efficient computation. An add-on would be a program developed by 3rd party developers that Interpeer calls to handle scripts in certain formats. It would be added to Interpeer by a “change request” if there was demand.
-- TLD to redirect to interpeer, for example: '.peer' or '.ipn'.
+- registering a TLD to redirect to interpeer, for example: '.peer' or '.ipn'.
 
 ## 10. Acknowledgments
 Without standing on the shoulders of giants it would not be possible to dare such ambitious goals; Bitcoin and bitTorrent opened the way for trustless collaboration on big scales, thank you.
 
 ## 11. References
 
-<todo>
-
-- ipfs
-- bitcoin
+- ipfs.com - interesting system to have content addressed peer-to-peer storage.
+- bitcoin.org - the blockchain technology is pivital to the network working together.
