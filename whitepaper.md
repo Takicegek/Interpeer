@@ -30,7 +30,7 @@ In [Bitcoin](www.bitcoin.org) a gargantuan amount of processing power is used on
 Each time a peer completes a job, they get one token to vote on the next block. Because peers can't choose jobs, it is nearly impossible to game the system.
 
 ### 2.2 web 2.0
-All other competing attempts at a peer-to-peer internet don't allow users to change the website. so modern websites using web 2.0 like [facebook.com](www.facebook.com) or [wikipedia.org](www.wikipedia.org) can not be implemented natively.
+All other attempts at a peer-to-peer world-wide-web don't allow users to change the website, so modern sites using web 2.0 like [facebook.com](www.facebook.com) or [wikipedia.org](www.wikipedia.org) can not be implemented natively.
 
 ### 2.3 jobs
 Interpeer adds a new concept called "jobs", which is explained later in depth. But to summarise it is the ability for a small group of peers to work on one task for a set time period then hand it over to another group of peers to continue.
@@ -38,6 +38,9 @@ Interpeer adds a new concept called "jobs", which is explained later in depth. B
 The reason why this is so valuable, is it allows the network to perform a huge variety of tasks in parallel.
 
 A good way of imaging it is think of how [bitTorrent](www.bittorrent.com) shares files, each separate file is seeded by a group of peers on the network, not the whole network. The difference is Interpeer is running scripts on these peers rather than sharing static data.
+
+### 2.4 migration
+Interpeer sites will be accessible by users using vanilla browsers, this is key to getting Interpeer widely adopted. This is acheived by using [interpeer.net](interpeer.net) to redirect requests to peers that are currently handling the site in question.
 
 ## 3. Example uses
 If [wikipedia.org](www.wikipedia.org) or [wikileaks.org](www.wikileaks.org) used Interpeer, they would see huge advantages:
@@ -261,6 +264,8 @@ Due to the Interpeer design, any node that is currently hosting a website script
 Also links could point to any other page of the website, meaning search engines could index Interpeer as a normal website, transparently.
 
 When someone views a website this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
+
+If a user stays on one website longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](interpeer.net).
 
 ### 6.2 plug-in
 The plug-in will detect URL's in the formats: "interpeer.net/example" , "example.peer", "example.ipn" or "ipn://example" and then fetch the page via the Interpeer network.
