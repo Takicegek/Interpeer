@@ -1,19 +1,13 @@
 # Interpeer
-A censorship free, peer-to-peer replacement of the world-wide-web. The new internet we will build together.
+Interpeer is a censorship free, peer-to-peer world-wide-web and a market place for massively parallel processing tasks.
 
-main features:
-- web2.0 will function unlike all current p2p alternatives.
+key innovations:
+- indestructible hosting similar to bitTorrent but for dynamic websites.
+- supports web 2.0 websites with dynamic user editable content.
 - seamless transition from the current world-wide-web.
-- indestructible hosting - similar to bitTorrent files but active websites.
-- massively distributed - so no single point of failure.
-- consensus - peers vote on changes.
-- payment for peers to participate.
-- censorship free.
-- redundant and cheap storage.
-- process massive computation tasks.
+- massively distributed parallel computing.
+- peer consensus can stop updates.
 
 # Contribute
 
-If you like the idea, please read the whitepaper and then open discussions to critise or discuss anything. This will help a lot.
-
-Pull requests are also welcome :). Lets work together to make this happen!
+Please read the whitepaper completely and then open discussions to criticise. This will help a lot.
