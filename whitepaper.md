@@ -7,22 +7,14 @@ I propose Interpeer as a complete replacement for the world-wide-web; a system t
 Interpeer is a peer-to-peer distributed network where people are incentivised to share unused system resources via a virtual currency; these system resources would be computational power, storage and bandwidth; which are then combined in a trust-less peer-to-peer way to make all the systems needed to make a functional replacement for the world-wide-web.
 
 ## 1. Introduction
-Interpeer would function as a anonymous peer-to-peer marketplace by connecting people that want to get paid for the unused system resources of their computer with people that want censorship free websites hosted (also store large amounts of data and do massive computation).
+Interpeer would function as a anonymous peer-to-peer marketplace by connecting people that want to get paid for the unused system resources of their computer with people that want to author censorship free websites, store large amounts of data or do massive computation tasks.
 
-Lets just talk about the most interesting example for now, currently websites are hosted on a physical server that is located by its domain name. On Interpeer a website is hosted by many peers which are paid for the service they provide via a virtual currency. In this model any user can install the program and get paid without doing anything.
+Currently websites are hosted on a physical server that is located by its domain name. On Interpeer a website is hosted by many peers which are paid for the service they provide via a virtual currency. In this model any user can install the program and get paid without doing anything.
 
-as for people wanting website hosting, the advantage is easy to see if you look at the disadvantages of the current internet client-server model:
-
-- single point of failure.
-- low anonymity.
-- limited freedom of speech.
-- each visitor downloads from the server not each other.
-- central control of domain names and ISPs control access.
-- optional data redundancy.
-- hackers can disrupt websites with DOS attacks.
+The advantage for website hosting is easy to see if you look at the disadvantages of the current internet client-server model: the server is a single point of failure, low anonymity when creating a website, each visitor downloads from the server not other visitors which is wasteful and finally there is central control over domain name lookup and ISPs control access which limits freedom of speech.
 
 ## 2. Interpeer key innovations
-Interpeer brings large innovations to peer-to-peer protocols. The main ones are:
+Interpeer introduces large innovations to peer-to-peer technology. The main ones are:
 
 ### 2.1 vote consensus
 In [Bitcoin](www.bitcoin.org) a gargantuan amount of processing power is used on a useless proof-of-work to reach consensus thus securing the network, but Interpeer uses a voting system to achieve the same security.
@@ -313,6 +305,16 @@ because development will be centralised, one attack vector would be to hide mali
 although the Byzantine generals problem can be solved by signing messages, the problem assumes all the generals will be accessible. As peers will sometimes lose connection and drop off-line, Interpeer must be able to deal with this. The problem comes with malicious peers not replying on purpose or not redirecting messages from certain target peers to accuse them of being off-line.
 
 This problem is solved by contacting peers directly if a peer tasked with multi-casting is accusing a peer of being off-line, but then you still have the problem of the peer being on-line to one and not replying to the other peer.
+
+### 7.8 DOS attack
+By flooding all peers that are hosting a site, it would be possible to temporarily degrade the performance of that interpeer site.
+
+When a job is added by an uploader they can choose how many peers are used, so for critical sites, more peers could be used to mitigate against this.
+
+### 7.9 fake jobs
+An attacker would create a job that is hard for a normal peer to solve, but precomputed for the attacker.
+
+This would not gain any real advantage, as the attacker would rarely get their own job, also jobs run for set time-frames. So gaming the block voting system using this would be ineffective.
 
 ## 8. Development plan
 Once it is agreed that Interpeer will function, then the plan is to use Bitcoin's business model as a guide; if a technology is good enough, it practically makes itself, as other developers join and make a community.
