@@ -1,5 +1,5 @@
 # INTERPEER - Trust-less peer-to-peer resource marketplace.
-8 Jan 2016 - draft 7 - Rory Renton (<smellymoo@gmail.com>)
+Jan 2016 - draft 8 - Rory Renton (<smellymoo@gmail.com>)
 
 ## 0. Abstract
 I propose Interpeer as a complete replacement for the world-wide-web; a system to distribute dynamic web-pages. Also as a trust-less marketplace to exchange resources such as processing and storage.
@@ -7,9 +7,11 @@ I propose Interpeer as a complete replacement for the world-wide-web; a system t
 Interpeer is a peer-to-peer distributed network where people are incentivised to share unused system resources via a virtual currency; these system resources would be computational power, storage and bandwidth; which are then combined in a trust-less peer-to-peer way to make all the systems needed to make a functional replacement for the world-wide-web.
 
 ## 1. Introduction
+in essence Interpeer does for the world-wide-web what [bitTorrent](www.bittorrent.com) does for file-sharing; each interpeer-site is hosted by other peers, which makes it very difficult to destroy, also authors can upload sites anonymously to the network. But unlike bitTorrent, the site is not static data; so to continue the analogy, it would be equivalent of a torrent that other users could edit, making it possible for interpeer-sites to have dynamic content like [wikipedia.org](www.wikipedia.org) with only very slight changes from the standard website design method.
+
 Interpeer would function as a anonymous peer-to-peer marketplace by connecting people that want to get paid for the unused system resources of their computer with people that want to author censorship free websites, store large amounts of data or do massive computation tasks.
 
-Currently websites are hosted on a physical server that is located by its domain name. On Interpeer a website is hosted by many peers which are paid for the service they provide via a virtual currency. In this model any user can install the program and get paid without doing anything.
+Currently websites are hosted on a physical server that is located by its domain name. An interpeer-site is hosted by many peers which are paid for the service they provide via a virtual currency. In this model any user can install the program and get paid without doing anything.
 
 The advantage for website hosting is easy to see if you look at the disadvantages of the current internet client-server model: the server is a single point of failure, low anonymity when creating a website, each visitor downloads from the server not other visitors which is wasteful and finally there is central control over domain name lookup and ISPs control access which limits freedom of speech.
 
@@ -22,7 +24,7 @@ In [Bitcoin](www.bitcoin.org) a gargantuan amount of processing power is used on
 Each time a peer completes a job, they get one token to vote on the next block. Because peers can't choose jobs, it is nearly impossible to game the system.
 
 ### 2.2 web 2.0
-All other attempts at a peer-to-peer world-wide-web don't allow users to change the website, so modern sites using web 2.0 like [facebook.com](www.facebook.com) or [wikipedia.org](www.wikipedia.org) can not be implemented natively.
+All other attempts at a peer-to-peer world-wide-web don't allow users to change the site, only the authors, so modern sites using web 2.0 like [facebook.com](www.facebook.com) or [wikipedia.org](www.wikipedia.org) can not be implemented natively.
 
 ### 2.3 jobs
 Interpeer adds a new concept called "jobs", which is explained later in depth. But to summarise it is the ability for a small group of peers to work on one task for a set time period then hand it over to another group of peers to continue.
@@ -31,21 +33,26 @@ The reason why this is so valuable, is it allows the network to perform a huge v
 
 A good way of imaging it is think of how [bitTorrent](www.bittorrent.com) shares files, each separate file is seeded by a group of peers on the network, not the whole network. The difference is Interpeer is running scripts on these peers rather than sharing static data.
 
-### 2.4 migration
+### 2.4 user migration
 Interpeer sites will be accessible by users using vanilla browsers, this is key to getting Interpeer widely adopted. This is acheived by using [interpeer.net](interpeer.net) to redirect requests to peers that are currently handling the site in question.
+
+### 2.5 website migration
+Because Interpeer uses a modified version of PHP to make interpeer-scripts, migrating from PHP websites to Interpeer would often be trivial.
+
+But because the peers hosting the interpeer-site or storing related data would be able to read any data that is unencrypted some security features would need to be implemented in browser (eg: JavaScript). For example end-to-end encryption or hash generation.
 
 ## 3. Example uses
 If [wikipedia.org](www.wikipedia.org) or [wikileaks.org](www.wikileaks.org) used Interpeer, they would see huge advantages:
 
 - content is addressed individually, so anyone viewing a page could serve it to others wanting to view it (like [bitTorrent](www.bittorrent.com) or [IPFS](ipfs.com)). Meaning Wikipedia would not be paying for much of the traffic and users that are close would get a speed advantage.
 - donations to keep it running would go directly to the hosting account. Meaning it could run autonomously. And donations would be anonymous.
-- If the original authors got “silenced” the website would continue to exist and be user-editable for as it was funded.
+- If the original authors got “silenced” the interpeer-site would continue to exist and be user-editable for as it was funded.
 
 A few other examples of uses for Interpeer:
 
 - anonymous bullet-proof web-hosting.
 - getting paid for your spare computer resources.
-- immortal websites that continue from donations or payments without author involvement.
+- immortal sites that continue from donations or payments without author involvement.
 - visit Interpeer sites anonymously.
 - web2.0 will function unlike all other p2p alternatives.
 - massive computation tasks.
@@ -105,22 +112,25 @@ Interpeer jobs are trust-less, unlike [bitTorrent](www.bittorrent.com) because p
 ### 5.1 peer-groups
 Interpeer has many different functions, but all of them have a common problem, how do you trust peers to complete a job correctly?
 
-In a peer-group all the peers must agree on the results of a function to proceed, it is in their interest to agree as they get paid. If trust units don't agree the malicious peers also get negative rating which leads to them getting banned, this is explained later.
+In a peer-group all the peers must agree on the results of a function to proceed, it is in their interest to agree as they get paid, also if they don't agree the malicious peers get negative rating which leads to them getting banned, this is explained later.
 
 Because of how peer-group are selected it means that the chance of colluding peers abusing the system is **(colluding peers / total peers)^N**. If, for example 50% of the network colludes, and there are only 3 peers in a peer-group, then there is a 1/8 chance of it being completely compromised.
 
-Initial handshake process:
+If there is an disagreement and the peers in the minority agree, then it's detected as an tie meaning an attack is happening. To decide the outcome of an attack, ratings of peers are used as well as number of peers on each side of the disagreement. If no resolution is reached, the handshake / job fails.
 
-1. All peers send an IP-lookup for all possible peers of the peer-group (one packet).
-2. The IP-lookup peer returns a list of peer-group IPs and status to each peer.
-3. If the first peer is behind a firewall it hole-punches.
-4. All peers send a contact packet to the first peer.
-5. If all the data matches then a peer-group has formed.
+### 5.1.1 handshake process
+The initial handshake process is used to share contact information of other peers in the group and decide if backup peers are needed.
 
-Once a peer-group is formed, we have certain amount of safety, because the peers must agree about everything they do. But the safety (colluding peers / total peers)N.
-A peer-group is compromised completely if all but one peer in a peer-group are colluding. Because if there is an disagreement and the peers in the minority agree, then it's detected as an tie meaning an attack is happening. To decide the outcome of an attack, ratings of peers are used as well as number of peers on each side of the disagreement. If no resolution is reached, the handshake / job fails.
+1. peer_1 sends an IP-lookup for all possible peers of the peer-group.
+  - If any peers are behind a firewall they hole-punch to peer_1.
+2. peer_1 multi-casts the IP-lookup (to all of the peer-group).
+  - if peer_1 is off-line peer_2 does this instead, etc.
+3. all peers send a job-confirmation to peer_1.
+4. peer_1 multi-casts the job-confirmation (to all of the peer-group).
+5. any peers missing information they contact the peers directly for it.
+6. the job has started. (backup peers decide for themselves if they are needed).
 
-### 5.1.1 Inter-peer-group communication
+### 5.1.2 Inter-peer-group communication
 Communication is for synchronization to achieve agreement, so each message is signed, and only hashes of the data are needed, also one peer is selected to collate the data and send it back to every peer in the group.
 
 <TODO: insert diagram peer-group communication to agree>
@@ -147,19 +157,21 @@ Most of the time the scripts will be serving web pages.
 Only small modifications will be needed, eg to account for the difference in file storage.
 
 ### 5.4 jobs
-Each time an uploader adds a script to be run by seeders, it has an associated configuration file that specifies how long it will run on a peer-group before the job is complete. If it is a continuing operation it must then be transferred to the next peer-group (for example web hosting).
+Each time an uploader adds a script to be run by seeders, it has an associated configuration file that specifies how long it will run on a peer-group before the job is complete. If it is a continuing operation peers will be swapped in one at a time.
 
-A common job would be hosting a website for say 10 minutes, after that the peer-group get paid if they all can agree, and the job moves to another peer-group.
+An example of a common job would be hosting a interpeer-site; using 3 peers, each peer running it for 30 minutes, and every 10 minutes one peer would leave and another join. So every 10 minutes all the peers would verify consensus then get paid.
+
+All jobs are limited by the global maximum of processing power and memory that can be used by one job slot. If a the job exceeds this, it fails. If a interpeer script needs more than the maximum, it uses more job slots.
 
 ### 5.4.1 job scheduling
-Jobs aren't assigned by a 3rd party on Interpeer, each peer can calculate when it is their turn to do a job. Each peer specifies how many jobs they can do concurrently, then claims that many “job slots” which are globally agreed and maintained by the IP-lookup peer-group.
+Jobs aren't assigned by a 3rd party on Interpeer, each peer can calculate when it is their turn to do a job. Each peer specifies how many jobs they can do concurrently, then requests that many “job slots” which are globally agreed and maintained by the IP-lookup peer-group.
 
-“job slots” are like raffle tickets; each time a peer in a peer-group must reliquish it's job, the new peer is defined by which job slot has a hash of [job id + hand-over time] that matches the job slot id.
+The “job slots” are like raffle tickets; each time a peer in a peer-group must relinquish it's job, the new peer is defined by which job slot has a hash of [job_id + hand-over time] that matches the job slot id.
 
-If peers try to turn down jobs by not responding, they get banned. The IP-lookup peers would report this and get paid for each peer they catch.
+If peers try to turn down jobs by not responding, they will get banned once they have enough negative ratings. Also a peer can only increase how many job slots they are requesting by 1 each interval (to stop peers claiming more than they can process to disrupt the network).
 
 ### 5.4.2 job hand-over
-With a continuing task (such as serving a website) it is broken into jobs of a certain length for each peer; each peer finishes a job at a different time interval to stagger hand-over. at the end of each job the peer must contact the replacement peer to get rewarded (with virtual currency and positive ratings).
+With a continuing task (such as serving an interpeer-site) it is broken into jobs of a certain length for each peer; each peer finishes a job at a different time interval to stagger hand-over. at the end of each job the peer must contact the replacement peer to get rewarded (with virtual currency and positive ratings).
 
 A peer has meta-data on all existing jobs which is stored on the blockchain, and each job has an ID and scheduling information. So peers can calculate when a job is scheduled for them and prepare a peer-group by doing the necessary handshake ahead of time.
 
@@ -182,16 +194,16 @@ Also during the “joining period” the abilities of your computer will be meas
 ### 5.7 peer rating system
 Every time a peer finishes a job with other peers in a peer-group, they review each others work. If the job is completed with no disagreement then they all claim a positive rating that they report themselves with proof. A review is weighted by which peer gives it, a peer with a high rating is more valuable.
 
-If a peer “lies” about something it is provable, as each message is signed so it can be quoted later, so if a peer colludes with another, then then other peers gets rewarded for leaving a negative rating with proof. For certain malicious actions, the peer account gets terminated, any accrued funds are lost, and they must go through the joining process again paying the “joining cost”.
+If a peer “lies” about something it is provable, as each message is signed so it can be quoted later, so if a peer colludes with another, then other peers gets rewarded for leaving a negative rating with proof. For certain malicious actions, the peer account gets terminated, any accrued funds are lost, and they must go through the joining process again paying the “joining cost”.
 
-The rating system doesn't record only one metric, as otherwise malicious peers could earn ratings by one way to 'spend' them doing a malicious activity. So there are a few different rating types to guard against different attack types:
+The rating system records more than one metric, as otherwise malicious peers could earn ratings by one way to 'spend' them doing a malicious activity. So there are a few different rating types to guard against different attack types:
 
 - Connection reliability – to protect against selecting jobs by dropping connection.
 - Job finished in agreement – to protect against collusion and job poisoning.
 
 Over time as peers take part in different peer-groups they might get marked by bad ratings as collateral damage, but if they are normally being honest, then their ratio of good ratings to bad will stay positive. But if they are a malicious peer, it will not take long to accrue enough negative ratings to fall bellow a threshold and be blocked, meaning they must pay the “joining cost” again.
 
-When a rating is first given, its not final, later on (when the delta-block gets converted to a checkpoint-block) if the peer that gave the rating is banned or changes rating, then the rating is updated to reflect that. This happens because there are 2 stages of storing a rating, first with a “proof” then later only the value. See “blockchain” section for more information as to why this happens.
+When a rating is first given, it is not final, later on (when the delta-block gets converted to a checkpoint-block) the rating is updated. This is because there are 2 stages of storing a rating, first with a “proof” then later only the value. So if disagree with a malicious peer, then later they get banned, the negativing review gets removed from your rating.
 
 ### 5.8 tax
 Some features of the network are done for the good of the network as a whole, and are not paid by uploaders, these jobs will be paid by the public account. To raise money for that account a small tax is applied to all payments from uploaders.
@@ -248,16 +260,16 @@ So malicious peers would either be forced to do work correctly to get a sufficie
 ## 6. Migration
 With something as enormous and interconnected as the Internet any attempt to replace it has to fight the “network effect”. To mitigate this Interpeer will be backwards compatible and migration will be seamless. All Interpeer links will work transparently for vanilla browsers.
 
-Due to the Interpeer design, any node that is currently hosting a website script will respond to normal HTTP requests on a certain port; the only problem is how do you discover which socket is hosting the website you are looking for without being a member of Interpeer? This is solved in 2 ways.
+Due to the Interpeer design, any node that is currently hosting an interpeer-site will respond to normal HTTP requests on a certain port; the only problem is how do you discover which socket is hosting the interpeer-site you are looking for without being a member of Interpeer? This is solved in 2 ways.
 
 ### 6.1 redirection
-[interpeer.net](www.interpeer.net) will act as a redirection service for vanilla browsers so any Interpeer website can be linked to using the Interpeer domain name, for example the “wikipedia” Interpeer domain would be: <interpeer.net/wikipedia> - this link would redirect to the index page of the website and the redirection would point to the socket that is currently hosting the content on Interpeer.
+[Interpeer.net](www.interpeer.net) will act as a redirection service for vanilla browsers so any interpeer-site can be linked to using the Interpeer domain name, for example the “wikipedia” Interpeer domain would be: <interpeer.net/wikipedia> - this link would redirect to the index page of the interpeer-site and the redirection would point to the socket that is currently hosting the content on Interpeer.
 
-Also links could point to any other page of the website, meaning search engines could index Interpeer as a normal website, transparently.
+Also links could point to any other page of the interpeer-site, meaning search engines could index Interpeer as a normal website, transparently.
 
-When someone views a website this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
+When someone views a interpeer-site this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
 
-If a user stays on one website longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](interpeer.net).
+If a user stays on one interpeer-site longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](interpeer.net).
 
 ### 6.2 plug-in
 The plug-in will detect URL's in the formats: "interpeer.net/example" , "example.peer", "example.ipn" or "ipn://example" and then fetch the page via the Interpeer network.
@@ -287,22 +299,22 @@ This attack is only valid against the blockchain part of Interpeer. Interpeer ha
 To protect against malicious admin, Interpeer will be open source and all admin changes to the blockchain will not be instant; instead they will be scheduled and all peers have that time to decide to vote against it, if a pre-set percentage vote against it, the change will not be applied.
 
 ### 7.4 man-in-the-midle attack
-The seeder is hosting the website to the visitor, so in a way it's even better than MITM; the options for the attacker are stealing data or modifying the data.
+The seeder is hosting the interpeer-site to the visitor, so in a way it's even better than MITM; the options for the attacker are stealing data or modifying the data.
 
 The plug-in would verify that the data is accurate as all members of the peer-group must agree and if they used [interpeer.net](www.interpeer.net) as a proxy there would be a clear warning of the dangers of not using the plug-in.
 
 The issue of stealing data is bigger, as the seeder is acting as your web-host, but they are just an anonymous peer. This issue is left to the seeders to deal with, the problem can be fixed in a number of ways; for example using Java-script to decrypt any sensitive data on the browser of the visitor, and then storing the data encrypted on Interpeer. This would make end-to-end encrypted, thus secure from the malicious seeders.
 
 ### 7.5 splitting the network
-if you can stop a peer from connecting to other peers, thus segmenting the network, an attacker may be able to do “double spends”.
+If you can stop a peer from connecting to other peers, thus segmenting the network, an attacker may be able to do “double spends”.
 
 This is rather difficult to achieve as each peer is connecting to many other peers continuously, and as jobs get assigned to new peer-groups the connections change. If a peer couldn't connect to form a new peer-group it would detect a connection problem to the network.
 
 ### 7.6 malicious developer
-because development will be centralised, one attack vector would be to hide malicious code in an update. But as peers get to vote against an update and all the code is open source, it would be almost impossible to get an update approved with malicious intent.
+Because development will be centralised, one attack vector would be to hide malicious code in an update. But as peers get to vote against an update and all the code is open source, it would be almost impossible to get an update approved with malicious intent.
 
 ### 7.7 off-line Byzantine general
-although the Byzantine generals problem can be solved by signing messages, the problem assumes all the generals will be accessible. As peers will sometimes lose connection and drop off-line, Interpeer must be able to deal with this. The problem comes with malicious peers not replying on purpose or not redirecting messages from certain target peers to accuse them of being off-line.
+Although the Byzantine generals problem can be solved by signing messages, the problem assumes all the generals will be accessible. As peers will sometimes lose connection and drop off-line, Interpeer must be able to deal with this. The problem comes with malicious peers not replying on purpose or not redirecting messages from certain target peers to accuse them of being off-line.
 
 This problem is solved by contacting peers directly if a peer tasked with multi-casting is accusing a peer of being off-line, but then you still have the problem of the peer being on-line to one and not replying to the other peer.
 
@@ -322,7 +334,7 @@ Once it is agreed that Interpeer will function, then the plan is to use Bitcoin'
 Remuneration for the core developers is the same as Bitcoin too, if the idea works and is used, the early adopters will be highly rewarded. And the idea is the core developers will the only ones with access until it is released to the general public, so we can 'mine' the early Interpeer blocks. So like share holders, we do well if Interpeer does well, but unlike shareholders, we don't pay any money for shares instead we must make the system work.
 
 ## 9. Alternatives
-Currently there is no system that does dynamic web2.0 websites that are hosted by peers.
+Currently there is no system that can host dynamic web2.0 sites in a peer-to-peer way.
 
 Here are other similar projects:
 
@@ -332,10 +344,10 @@ Here are other similar projects:
 - [Morphis](morph.is) - static.
 - [TOR](www.torproject.org) - only anonymises normal hosts.
 
-So these can not host for example: [wikipedia.org](wikipedia.org) or [facebook.com](facebook.com) because the visitors can not change the data stored.
+So these can not host for example: [wikipedia.org](wikipedia.org) or [facebook.com](facebook.com) because the visitors don't change the data stored.
 
 ## 10. Future research
-There are a few parts that fall outside of the scope of this white-paper, but could be added to Interpeer later. For example:
+There are a few parts that fall outside of the scope of this white paper, but could be added to Interpeer later. For example:
 
 - peer-to-peer search using DHT.
 - Add-ons. One example would be more efficient computation. An add-on would be a program developed by 3rd party developers that Interpeer calls to handle scripts in certain formats. It would be added to Interpeer by a “change request” if there was demand.
