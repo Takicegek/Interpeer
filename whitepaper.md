@@ -1,5 +1,5 @@
 # INTERPEER - The trust-less peer-to-peer resource marketplace.
-24 September 2016 - draft 10 - [Rory Renton] (smellymoo.com)
+24 September 2016 - draft 10 - [Rory Renton] (http://www.smellymoo.com)
 
 ## 0. Abstract
 Interpeer is a complete peer-to-peer alternative for the world-wide-web; a system to distribute dynamic web-pages. It achieves this by being a trust-less marketplace to exchange processing, bandwidth and storage using a distributed network of peers.
@@ -9,7 +9,7 @@ The original concept of the Internet as a free exchange of information has incre
 
 Interpeer would function as a anonymous peer-to-peer marketplace connecting people that want to get paid for their system resources with others that want to author censorship free websites, store large amounts of data or do massive computation tasks.
 
-in essence Interpeer does for the world-wide-web what [bitTorrent](www.bittorrent.com) does for file-sharing; each interpeer-site is hosted by groups of peers, which makes it very difficult to destroy, also authors can upload sites anonymously to the network. But unlike bitTorrent, the site is not static data; so to continue the analogy; it would be equivalent of a torrent that users could edit. This makes it possible for interpeer-sites to have dynamic (web 2.0) content like [wikipedia.org](www.wikipedia.org).
+in essence Interpeer does for the world-wide-web what [bitTorrent](http://www.bittorrent.com) does for file-sharing; each interpeer-site is hosted by groups of peers, which makes it very difficult to destroy, also authors can upload sites anonymously to the network. But unlike bitTorrent, the site is not static data; so to continue the analogy; it would be equivalent of a torrent that users could edit. This makes it possible for interpeer-sites to have dynamic (web 2.0) content like [wikipedia.org](http://www.wikipedia.org).
 
 Currently websites are hosted on a physical server that is located by its domain name. An interpeer-site is hosted by many peers which are paid for the service they provide via a virtual currency (InterCoin). In this model anyone can install the program and get paid without further understanding.
 
@@ -19,22 +19,22 @@ The advantage for website hosting is easy to see if you look at the disadvantage
 Interpeer introduces large innovations to peer-to-peer technology. The significant ones are:
 
 ### 2.1 useful processing
-In [Bitcoin](www.bitcoin.org) a gargantuan amount of processing power is used on a useless proof-of-work to reach consensus thus securing the network, but Interpeer uses the processing power of the network to do useful functions (run the scripts).
+In [Bitcoin](http://www.bitcoin.org) a gargantuan amount of processing power is used on a useless proof-of-work to reach consensus thus securing the network, but Interpeer uses the processing power of the network to do useful functions (run the scripts).
 
 Interpeer adds a new concept called a "job", which is explained later in depth. But to summarise it is the ability for a group of peers to work on one task together, This is possible because they must agree on the outcome of processing. The reason why this is so valuable is it allows the network to perform a huge variety of tasks in parallel.
 
-A good way of imaging it is think of how [bitTorrent](www.bittorrent.com) shares files, each separate file is seeded by a group of peers on the network, not the whole network. The difference is Interpeer is running scripts on these peers rather than sharing static data.
+A good way of imaging it is think of how [bitTorrent](http://www.bittorrent.com) shares files, each separate file is seeded by a group of peers on the network, not the whole network. The difference is Interpeer is running scripts on these peers rather than sharing static data.
 
 ### 2.2 web 2.0
-All other attempts at a peer-to-peer world-wide-web don't allow users to interact with the site leaving changes, only the authors, so modern sites using web 2.0 like [facebook.com](www.facebook.com) or [wikipedia.org](www.wikipedia.org) can not be implemented.
+All other attempts at a peer-to-peer world-wide-web don't allow users to interact with the site leaving changes, only the authors, so modern sites using web 2.0 like [facebook.com](http://www.facebook.com) or [wikipedia.org](http://www.wikipedia.org) can not be implemented.
 
 ### 2.3 user migration
 Interpeer sites will be accessible by users using vanilla browsers and no knowledge of Interpeer, this is key to getting Interpeer widely adopted. 
 
-This is achieved by using [interpeer.net](interpeer.net) to redirect requests to peers that are currently handling the site in question. During this insecure method a warning bar will appear asking users to install the browser plugin to use interpeer directly.
+This is achieved by using [interpeer.net](http://interpeer.net) to redirect requests to peers that are currently handling the site in question. During this insecure method a warning bar will appear asking users to install the browser plugin to use interpeer directly.
 
 ### 2.4 processing backed currency
-Because Interpeer is primarily a P2P cloud computing platform, the linked currency (InterCoin) would be backed by something with a known value; processing power and storage. This would give InterCoin great stability in comparision with Bitcoin, which can drop to any abitary value during times of market upheaval.
+Because Interpeer is primarily a P2P cloud computing platform, the linked currency (InterCoin) would be backed by something with a known value; processing power and storage. This would give InterCoin great stability in comparison with Bitcoin, which can drop to any arbitrary value during times of market upheaval.
 
 InterCoin has a real known value of a fixed amount of processing power and/or storage on a peers computer.
 
@@ -44,9 +44,9 @@ Because Interpeer uses a modified version of PHP to make interpeer-scripts, migr
 But because the peers hosting the interpeer-site or storing related data would be able to read any data that is unencrypted some security features would need to be implemented in browser (e.g. using JavaScript). For example end-to-end encryption or hash generation.
 
 ## 3. Example uses
-If [wikipedia.org](www.wikipedia.org) or [wikileaks.org](www.wikileaks.org) used Interpeer, they would see huge advantages:
+If [wikipedia.org](http://www.wikipedia.org) or [wikileaks.org](http://www.wikileaks.org) used Interpeer, they would see huge advantages:
 
-- content is addressed individually, so anyone viewing a page could serve it to others wanting to view it (like [bitTorrent](www.bittorrent.com) or [IPFS](ipfs.com)). Meaning Wikipedia would not be serving much of the traffic.
+- content is addressed individually, so anyone viewing a page could serve it to others wanting to view it (like [bitTorrent](http://www.bittorrent.com) or [IPFS](http://ipfs.com)). Meaning Wikipedia would not be serving much of the traffic.
 - donations to keep it running would go directly to the hosting account. Meaning it could run autonomously via direct anonymous donations.
 - If the original authors got “silenced” the interpeer-site would continue to exist and be user-editable for as long as it was funded.
 
@@ -56,7 +56,7 @@ A few other examples of uses for Interpeer:
 - getting paid for your spare computer resources.
 - immortal sites that continue from donations or payments without author involvement.
 - visit Interpeer sites anonymously.
-- web2.0 will function unlike all other p2p www alternatives.
+- web2.0 will function unlike all other P2P WWW alternatives.
 - massive computation tasks.
 - storage with distributed multiple redundant copies.
 - onion routing proxy service similar to TOR.
@@ -71,22 +71,22 @@ So far improvements have been stacked upon the older technology, leaving the ant
 
 Generally inventions come from taking pre-existing technologies and combining / improving them. So the easiest way to explain Interpeer is by showing you what has been sourced and why.
 
-##### File storage :- [bitTorrent](www.bittorrent.com) / [IPFS](www.ipfs.com) / Storq / Maidsafe:
+##### File storage :- [bitTorrent](http://www.bittorrent.com) / [IPFS](http://www.ipfs.com) / Storq / Maidsafe:
 Share files peer-to-peer creating one shared storage system with distributed redundancy. Which makes it very difficult to lose or destroy files. In some of these technologies clients pay peers to secure files. Giving an incentive to do it, at a lower price than commercial options.
 
-##### Consensus :- [Bitcoin](www.bitcoin.org) / Etherium / Namecoin:
+##### Consensus :- [Bitcoin](http://www.bitcoin.org) / Etherium / Namecoin:
 Trust-less currency and smart contracts using blockchain Technology. Without having a way to remunerate peers for taking part Interpeer would not be viable, also Namecoin demonstrates that domain registration can be done without the need of a central authority.
 
 ##### Hosting :- Cloud hosting:
 A server no longer is one fixed computer, but can share the job between many.
 
-##### Massive computation :- [Boinc](boinc.berkeley.edu):
+##### Massive computation :- [Boinc](http://boinc.berkeley.edu):
 Distributed computation, using the spare resources of many computers and combing them.
 
 ### 4.1 flat power structure
 Information is power. Since the dawn of civilisation power has been hierarchical; with only very few at the top and everyone else at the bottom. Even the first attempt at a world-wide-web; which was supposed to liberate information didn't really change that; with domain registration centralised, the index (search engines) centralised and moderated, DNS centralised, and the ISPs as the gate keepers.
 
-When peer-to-peer technology was invented (like [bitTorrent](www.bittorrent.com) and [Bitcoin](www.bitcoin.org)) it changed everything, unlike all previous power structures (pyramid shaped) it was flat; fair; peer-to-peer; people share and are equal. Although the importance of this breakthrough has been missed by most, it's the most important historical event in our life times; finally we have solved the unsolvable; trust without hierarchy. There is no longer a need for a governing body; people can work together as equals only using clever maths to govern the exchanges.
+When peer-to-peer technology was invented (like [bitTorrent](http://www.bittorrent.com) and [Bitcoin](http://www.bitcoin.org)) it changed everything, unlike all previous power structures (pyramid shaped) it was flat; fair; peer-to-peer; people share and are equal. Although the importance of this breakthrough has been missed by most, it's the most important historical event in our life times; finally we have solved the unsolvable; trust without hierarchy. There is no longer a need for a governing body; people can work together as equals only using clever maths to govern the exchanges.
 
 But this is only the start; a test case, to fully appreciate the advantage of this we need a new model of the internet; a fair one, where information is safe from censorship and there are no single points of failure or gatekeepers. Interpeer is designed to give people freedom of speech, so we can finally let information be free in every sense of the word, uncontrollable and uncensored for all!
 
@@ -97,9 +97,9 @@ Interpeer has 3 types of users with different goals:
 
 - uploader – pay to host websites / process large computations / store data.
 - seeder – get paid to run the Interpeer client.
-- visitor – use [interpeer.net](www.interpeer.net) or install a plug-in to their browser to visit .peer sites on Interpeer.
+- visitor – use [interpeer.net](http://www.interpeer.net) or install a plug-in to their browser to visit .peer sites on Interpeer.
 
-When an uploader submits to Interpeer they post a “bundle” which is distributed on the network in a similar way to [bitTorrent](www.bittorrent.com), but unlike it the bundle is dynamic; the scripts can change the data. The task is split into “jobs” of a fixed amount of time / processing cycles and peers works together to complete it.
+When an uploader submits to Interpeer they post a “bundle” which is distributed on the network in a similar way to [bitTorrent](http://www.bittorrent.com), but unlike it the bundle is dynamic; the scripts can change the data. The task is split into “jobs” of a fixed amount of time / processing cycles and peers works together to complete it.
 
 A bundle is group of the following:
 
@@ -111,7 +111,7 @@ A bundle is group of the following:
 - mutable data
 - static data
 
-Interpeer jobs are trust-less, because unlike [bitTorrent](www.bittorrent.com) peers can't choose what job they are doing. Each peer plays a lottery to get jobs, and if they turn down the assigned jobs to attempt to game the system they quickly lose their peer-rating and won't get allocated jobs.
+Interpeer jobs are trust-less, because unlike [bitTorrent](http://www.bittorrent.com) peers can't choose what job they are doing. Each peer plays a lottery to get jobs, and if they turn down the assigned jobs to attempt to game the system they quickly lose their peer-rating and won't get allocated jobs.
 
 ### 5.1 peer-groups
 Peer-to-peer networks have a common problem; how do you trust peers to complete their task correctly?
@@ -155,7 +155,7 @@ To deal with the volume of requests and security needed, the job will have a lon
 This job will be paid by minting InterCoin. Which will also provide a consistent flow of InterCoins into the system.
 
 ### 5.2.2 unpaid jobs - DNS and IP-lookup
-New seeders show comitment by doing unpaid work to get a peer-rating so they are more likely to win paid jobs.
+New seeders show commitment by doing unpaid work to get a peer-rating so they are more likely to win paid jobs.
 
 Because a peer can prove their own identity using self-signing of their peer ID; no security is needed for translating a peer ID into an IP address. But it would be wasteful for all peers to keep a complete peer list up to date, so one peer-group is tasked with handling a list of peer IP addresses.
 
@@ -169,7 +169,7 @@ The bundles that uploaders add to the network contain scripts to be run by the s
 The Interpeer scripting language will be a fork of PHP, this is for a number of reasons:
 - PHP is fairly secure and tested.
 - Most of the time the scripts will be serving web pages.
-- Only small modifications will be needed, eg to account for the difference in file storage.
+- Only small modifications will be needed, e.g. to account for the difference in file storage.
 
 ### 5.4 jobs
 Each time an uploader adds a script to be run by seeders, it has an associated configuration file that specifies how long it will run on a peer-group before the job is complete. If it is a continuing operation peers will be swapped in one at a time.
@@ -188,10 +188,10 @@ With a continuing task (such as serving an interpeer-site) it is broken into job
 
 Peers will join a peer-group by doing the necessary handshake ahead of time, so hand-over events happen exactly on schedule.
 
-Because peer-groups are contacted ahead of time, and hand-overs are staggerd, all that is normally needed is 1 old peer to transfer the memory of the task to 1 new peer.
+Because peer-groups are contacted ahead of time, and hand-overs are staggered, all that is normally needed is 1 old peer to transfer the memory of the task to 1 new peer.
 
 ### 5.5 initial boot-strapping
-When first connecting to the Interpeer network, a peer needs certain information (for example the IP address of other peers). A bootstrap request can be answered by any peer, and when no peers are known [interpeer.net](www.interpeer.net) can be used or the Interpeer IRC chat room for redundancy.
+When first connecting to the Interpeer network, a peer needs certain information (for example the IP address of other peers). A bootstrap request can be answered by any peer, and when no peers are known [interpeer.net](http://www.interpeer.net) can be used or the Interpeer IRC chat room for redundancy.
 
 A bootstrap reply has this information:
 
@@ -202,7 +202,7 @@ A bootstrap reply has this information:
 ### 5.6 registering a peer
 Many attacks on peer-to-peer networks involve creating many fake nodes, either to dos attack the system or game the rating system / selection process.
 
-The root-peers record the total of jobs completed and jobs completed in the last interval for each peer, which is used to priorise mature peers when allocating jobs or during disagreements. This creates a "joining cost" as new peers won't be allocated paid / important jobs making it less worthwhile to create fake peers.
+The root-peers record the total of jobs completed and jobs completed in the last interval for each peer, which is used to prioritise mature peers when allocating jobs or during disagreements. This creates a "joining cost" as new peers won't be allocated paid / important jobs making it less worthwhile to create fake peers.
 
 ### 5.7 peer rating system
 Every time a peer finishes a job in a peer-group, they review each others work. If the job is completed with no disagreement then they all claim a positive rating that they report themselves with proof.
@@ -224,17 +224,17 @@ Some features of the network are done for the good of the network as a whole, an
 Because Interpeer functions by having micro-transactions for each job, no tax will be applied to money earned from jobs.
 
 ### 5.9 vote-chain
-Most of the Interpeer network systems work more like [bitTorrent](www.bittorrent.com); that not all of the peers are doing the same thing, jobs are run on small groups of peers. But certain data needs to be agreed by the network as a whole which is where the vote-chain is used.
+Most of the Interpeer network systems work more like [bitTorrent](http://www.bittorrent.com); that not all of the peers are doing the same thing, jobs are run on small groups of peers. But certain data needs to be agreed by the network as a whole which is where the vote-chain is used.
 
-An interesting difference from [Bitcoin](www.bitcoin.org) is that all the data doesn't need to be stored on the blockchain directly, only a proof of the data accuracy.
+An interesting difference from [Bitcoin](http://www.bitcoin.org) is that all the data doesn't need to be stored on the blockchain directly, only a proof of the data accuracy.
 
 Differences with Bitcoin blockchain:
-- There will be no data stored on the vote-chain. Instead for each set of data it will have: a hash of the data, a hash of the list of peers and their signitures that verify it.
+- There will be no data stored on the vote-chain. Instead for each set of data it will have: a hash of the data, a hash of the list of peers and their signatures that verify it.
 - the root-group will sign each new block and state the peers that are in the next root-group that can sign the next block.
 
-Because no data is stored on the vote-chain, but instead is referenced, it is trivial to implement checkpoints and delta-blocks. Also the vote-chain would be at least 100 times smaller than Bitcoin. And because of checkpoints, new client software could start sychronising at an arbitrary hard-coded checkpoint instead of the genesis block.
+Because no data is stored on the vote-chain, but instead is referenced, it is trivial to implement checkpoints and delta-blocks. Also the vote-chain would be at least 100 times smaller than Bitcoin. And because of checkpoints, new client software could start synchronising at an arbitrary hard-coded checkpoint instead of the genesis block.
 
-Peers have the option to only download the 2 last checkpoint blocks and verify the hash against [interpeer.net](www.interpeer.net) during initialisation if they choose, this would be a serious advantage to seeders as they wouldn't need to download the whole vote-chain and verify it to start working. Not much trust is needed for seeders to use this method, as at this point they have not yet done any work.
+Peers have the option to only download the 2 last checkpoint blocks and verify the hash against [interpeer.net](http://www.interpeer.net) during initialisation if they choose, this would be a serious advantage to seeders as they wouldn't need to download the whole vote-chain and verify it to start working. Not much trust is needed for seeders to use this method, as at this point they have not yet done any work.
 
 The vote-chain will be used to reference and verify:
 
@@ -245,16 +245,16 @@ The vote-chain will be used to reference and verify:
 - Job allocations.
 
 ### 5.10 peer consensus
-One huge problem with the Internet as it functions now, is that updating the protocol is nearly impossible, as all parties must change. This can been seen with how long it is taking to make a trivial change like IP6. Interpeer fixes this problem.
+One huge problem with the Internet as it functions now, is that updating the protocol is nearly impossible, as all parties must change. This can been seen with how long it is taking to make a trivial change like IPv6. Interpeer fixes this problem.
 
 All Interpeer settings are referenced on the vote-chain. A “change request” with a scheduled “valid from” time can be added detailing the changes to the settings and allowing peers with over a certain rating to vote against it, if a high enough percentage vote against the changes, they are not applied. But otherwise the change will become valid at the set time so they will be applied to every peer simultaneously.
 
 This means updating or changing settings would be possible, and there is no trust given to the core developers, as Interpeer will be open source, so if people notice a problem with an nefarious update they can spread the information and all vote against it.
 
-One setting is “minimum vote time-frame” which would mean that an update could not happen faster than that. This does sacrifice quick patching of problems in favor of peer consensus, as otherwise a nefarious developer could post a change request happening straight away without giving time to vote.
+One setting is “minimum vote time-frame” which would mean that an update could not happen faster than that. This does sacrifice quick patching of problems in favour of peer consensus, as otherwise a nefarious developer could post a change request happening straight away without giving time to vote.
 
 ### 5.11 data storage
-All data is handled similar to [IPFS](ipfs.com)'s content-addressed storage model, but adds mutable files. When a script has associated data, it stores the necessary content references (in the job memory). So when a associated content-block in storage gets changed, it has a new hash, so therefore new reference.
+All data is handled similar to [IPFS](http://ipfs.com)'s content-addressed storage model, but adds mutable files. When a script has associated data, it stores the necessary content references (in the job memory). So when a associated content-block in storage gets changed, it has a new hash, so therefore new reference.
 
 Each content-block must manage a list of scripts that reference it. If it is no longer referenced, then the peers will discard it. When a script changes a content-block, it sends the data to known peers storing that content-block.
 Any orphaned content-blocks will be deleted from peers when it is necessary to gain more space.
@@ -275,13 +275,13 @@ With something as enormous and interconnected as the Internet any attempt to rep
 Due to the Interpeer design, any node that is currently hosting an interpeer-site will respond to normal HTTP requests on a certain port; the only problem is how do you discover which socket is hosting the interpeer-site you are looking for without being a member of Interpeer? This is solved in 2 ways.
 
 ### 6.1 redirection
-[Interpeer.net](www.interpeer.net) will act as a redirection service for vanilla browsers so any interpeer-site can be linked to using the Interpeer domain name, for example the “wikipedia” Interpeer domain would be: <interpeer.net/wikipedia> - this link would redirect to the index page of the interpeer-site and the redirection would point to the socket that is currently hosting the content on Interpeer.
+[Interpeer.net](http://www.interpeer.net) will act as a redirection service for vanilla browsers so any interpeer-site can be linked to using the Interpeer domain name, for example the “wikipedia” Interpeer domain would be: <interpeer.net/wikipedia> - this link would redirect to the index page of the interpeer-site and the redirection would point to the socket that is currently hosting the content on Interpeer.
 
 Also links could point to any other page of the interpeer-site, meaning search engines could index Interpeer as a normal website, transparently.
 
 When someone views a interpeer-site this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
 
-If a user stays on one interpeer-site longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](interpeer.net).
+If a user stays on one interpeer-site longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](http://interpeer.net).
 
 ### 6.2 plug-in
 The plug-in will detect URL's in the formats: "interpeer.net/example" , "example.peer", "example.ipn" or "ipn://example" and then fetch the page via the Interpeer network.
@@ -310,10 +310,10 @@ This attack is only valid against the blockchain part of Interpeer. Interpeer ha
 
 To protect against malicious admin, Interpeer will be open source and all admin changes to the blockchain will not be instant; instead they will be scheduled and all peers have that time to decide to vote against it, if a pre-set percentage vote against it, the change will not be applied.
 
-### 7.4 man-in-the-midle attack
+### 7.4 man-in-the-middle attack
 The seeder is hosting the interpeer-site to the visitor, so in a way it's even better than MITM; the options for the attacker are stealing data or modifying the data.
 
-The plug-in would verify that the data is accurate as all members of the peer-group must agree and if they used [interpeer.net](www.interpeer.net) as a proxy there would be a clear warning of the dangers of not using the plug-in.
+The plug-in would verify that the data is accurate as all members of the peer-group must agree and if they used [interpeer.net](http://www.interpeer.net) as a proxy there would be a clear warning of the dangers of not using the plug-in.
 
 The issue of stealing data is bigger, as the seeder is acting as your web-host, but they are just an anonymous peer. This issue is left to the seeders to deal with, the problem can be fixed in a number of ways; for example using Java-script to decrypt any sensitive data on the browser of the visitor, and then storing the data encrypted on Interpeer. This would make end-to-end encrypted, thus secure from the malicious seeders.
 
@@ -341,7 +341,7 @@ An attacker would create a job that is hard for a normal peer to solve, but prec
 This would not gain any real advantage, as the attacker would rarely get their own job, also jobs run for set time-frames. So gaming the block voting system using this would be ineffective.
 
 ### 7.10 parrot peer
-The malicious peer would during peer-group sychronisation wait for another peer to give their answer first, then agree with it. This would mean that they didn't have to do any work, but would get paid as if they had.
+The malicious peer would during peer-group synchronisation wait for another peer to give their answer first, then agree with it. This would mean that they didn't have to do any work, but would get paid as if they had.
 
 This is solved by all peers in a peer-group first needing to share a hash+salt of the answer, then after answer+salt. So that you can prove they formed their own answer.
 
@@ -360,26 +360,26 @@ Currently there is no system that can host dynamic web2.0 sites in a peer-to-pee
 
 Here are other similar projects:
 
-- [webTorrent](webtorrent.io) - only hosts static html using [bitTorrent](www.bittorrent.com).
-- [Project maelstrom](project-maelstrom.bittorrent.com) - custom browser needed and static sites.
-- [Zeronet](Zeronet.io) - sites are only multiple author editable not web2.0.
-- [Morphis](morph.is) - static.
-- [TOR](www.torproject.org) - only anonymises normal hosts.
+- [webTorrent](http://webtorrent.io) - only hosts static html using [bitTorrent](http://www.bittorrent.com).
+- [Project maelstrom](http://project-maelstrom.bittorrent.com) - custom browser needed and static sites.
+- [Zeronet](http://Zeronet.io) - sites are only multiple author editable not web2.0.
+- [Morphis](http://morph.is) - static.
+- [TOR](http://www.torproject.org) - only anonymises normal hosts.
 
-So these can not host for example: [wikipedia.org](wikipedia.org) or [facebook.com](facebook.com) because the visitors don't change the data stored.
+So these can not host for example: [wikipedia.org](http://wikipedia.org) or [facebook.com](http://facebook.com) because the visitors don't change the data stored.
 
 ## 10. Future research
 There are a few parts that fall outside of the scope of this white paper, but could be added to Interpeer later. For example:
 
 - peer-to-peer search using DHT.
-- more efficient computation using compilation instead of interpeting for interpeer scripts that are computationally focused.
+- more efficient computation using compilation instead of interpreting for interpeer scripts that are computationally focused.
 - Add-ons; 3rd party developed engine that Interpeer calls to handle scripts in certain formats. It would be added to Interpeer by a “change request” if there was demand.
 - registering a TLD to redirect to Interpeer, for example: '.peer' or '.ipn'.
 
 ## 11. Acknowledgements
-Without standing on the shoulders of giants it would not be possible to dare such ambitious goals; [Bitcoin](www.bitcoin.org) and [bitTorrent](www.bittorrent.com) opened the way for trust-less collaboration on big scales, thank you.
+Without standing on the shoulders of giants it would not be possible to dare such ambitious goals; [Bitcoin](http://www.bitcoin.org) and [bitTorrent](http://www.bittorrent.com) opened the way for trust-less collaboration on big scales, thank you.
 
 ## 12. References
 
-- [IPFS](ipfs.com) - interesting system to have content addressed peer-to-peer storage.
-- [Bitcoin](bitcoin.org) - the blockchain technology is pivotal to the network working together.
+- [IPFS](http://ipfs.com) - interesting system to have content addressed peer-to-peer storage.
+- [Bitcoin](http://bitcoin.org) - the blockchain technology is pivotal to the network working together.
