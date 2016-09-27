@@ -37,7 +37,7 @@ All other attempts at a peer-to-peer world-wide-web don't allow users to interac
 ### 2.3 user migration
 Interpeer sites will be accessible by users using vanilla browsers and no knowledge of Interpeer, this is key to getting Interpeer widely adopted. 
 
-This is achieved by using [interpeer.net](http://interpeer.net) to redirect requests to peers that are currently handling the site in question. During this insecure method a warning bar will appear asking users to install the browser plugin to use interpeer directly.
+This is achieved by using [interpeer.net](http://interpeer.net) to redirect requests to peers that are currently handling the site in question. During this insecure method a warning bar will appear asking users to install the browser plug-in to use interpeer directly.
 
 ### 2.4 processing backed currency
 Because Interpeer is primarily a P2P cloud computing platform, the linked currency (InterCoin) would be backed by something with a known value; processing power and storage. This would give InterCoin great stability in comparison with Bitcoin, which can drop to any arbitrary value during times of market upheaval.
@@ -81,7 +81,7 @@ Generally inventions come from taking pre-existing technologies and combining / 
 Share files peer-to-peer creating one shared storage system with distributed redundancy. Which makes it very difficult to lose or destroy files. In some of these technologies clients pay peers to secure files. Giving an incentive to do it, at a lower price than commercial options.
 
 ##### Consensus :- [Bitcoin](http://www.bitcoin.org) / Etherium / Namecoin:
-Trust-less currency and smart contracts using blockchain Technology. Without having a way to remunerate peers for taking part Interpeer would not be viable, also Namecoin demonstrates that domain registration can be done without the need of a central authority.
+Trust-less currency and smart contracts using block-chain technology. Without having a way to remunerate peers for taking part Interpeer would not be viable, also Namecoin demonstrates that domain registration can be done without the need of a central authority.
 
 ##### Hosting :- Cloud hosting:
 A server no longer is one fixed computer, but can share the job between many.
@@ -132,9 +132,25 @@ Because of how peer-groups are selected it means that the chance of colluding pe
 If there is an disagreement then ratings of peers are used as well as number of peers on each side of the disagreement to settle which side is correct.
 
 #### 6.2.1 Inter-peer-group communication
-Communication is for synchronization to achieve agreement, so each message is signed, and only hashes of the data are needed, also one peer is selected to collate the data and send it back to every peer in the group.
+Communication is for synchronization to achieve agreement, so each message is signed, and only hashes of the data are needed.
 
 When a peer is leaving the peer-group then they will hand-over the job to another eligible peer.
+
+##### 6.2.1.1 multi-casting
+One peer is selected to collate the data and send it back to every peer in the group. This saves bandwidth.
+
+For example a 17 member peer-group sending all peers a message with a reply:
+- **direct:** 544 messages = (16×2)×17
+- **multicast:** 32 messages = 16×2
+
+The other point is with direct messages is that the other peers wouldn't know what each other said, so would need an extra step after.
+
+##### 6.2.1.2 onion routing
+Peers would not need to know the other peers true identity, only that they are eligible. So all traffic could be onion routed without much added complexity.
+
+Because each packet would be encrypted and the number of hops could not be ascertained from the packet, it would also add "plausible deniability" even with 0 hops, as it couldn't be proven that the destination peer of a packet was the final destination.
+
+This would protect important jobs that need security against DDoS attack and peers that want security. As either a job or the peer could specify they needed X hops.
 
 ### 6.3 Interpeer scripting
 The bundles that uploaders add to the network contain scripts to be run by the seeders which is where all of the work is done to create resources such as Interpeer sites.
@@ -145,16 +161,18 @@ The Interpeer scripting language will be a fork of PHP, this is for a number of 
 - Only small modifications will be needed, e.g. to account for the difference in file storage.
 
 ### 6.4 jobs
-Each time an uploader adds a script to be run by seeders, it has an associated configuration file that specifies how long it will run on a peer-group before the job is complete. If it is a continuing operation peers will be swapped in one at a time.
+Each time a bundle is uploaded onto Interpeer it has scripts to be run by seeders and an associated configuration file that specifies how long it will run on a peer-group before the job is complete. If it is a continuing operation peers will be swapped in one at a time.
 
-An example of a common job would be hosting a interpeer-site; using 5 peers, each peer running it for 30 minutes, and every 6 minutes one peer would leave and another join so all the peers would verify consensus at this point to get paid.
+An example of a common job would be hosting an interpeer-site; using 5 peers for example, with each peer running it for 30 minutes, then every 6 minutes one peer would leave (and another join) so all the peers would verify consensus at this point to get paid.
+
+A job would be in essence renting out processing power, memory and storage.
 
 All jobs are limited by the processing power and memory that can be used by one job slot. If the job exceeds this, it fails (in a way that the script can catch the error and deal with it). If a script needs more than the maximum, it uses more job slots.
 
 #### 6.4.1 segmented jobs
 some jobs have too much data, and it can be split into shards. For example the data listing all jobs or listing all peers. In these cases a job can be split into sub jobs, where the code is the same for all, but the data that it's referencing is segmented.
 
-The only difference would be during sychronisation, peers would come to consensus within one segment.
+The only difference would be during synchronisation, peers would come to consensus within one segment.
 
 #### 6.4.2 public jobs
 Not all jobs will be paid. Some are needed for the network to function as a whole.
@@ -187,7 +205,7 @@ All peers must have do things at exactly the same time, as many functions (like 
 If a peer has bad timing it will fail the handshake to join a peer-group, then after a few bad ratings they will be unable to find work.
 
 #### 6.4.4 job hand-over
-With a continuing task (such as serving an interpeer-site) it is broken into jobs of a certain length for each peer; each peer finishes a job at a different time interval to stagger hand-over. at the end of each job the peer must contact the replacement peer to get rewarded (with virtual currency and positive ratings).
+With a continuing task (such as serving an interpeer-site) it is broken into jobs of a certain length for each peer; each peer finishes a job at a different time interval to stagger hand-over. at the end of each job the peer must transfer the job to the next peer to get rewarded.
 
 Peers will join a peer-group by doing the necessary handshake ahead of time, so hand-over events happen exactly on schedule.
 
@@ -224,9 +242,9 @@ When a rating is first given, it is not final, later on (when the delta-block ge
 ### 6.7 vote-chain
 Most of the Interpeer network systems work more like [bitTorrent](http://www.bittorrent.com); that not all of the peers are doing the same thing, jobs are run on small groups of peers. But certain data needs to be agreed by the network as a whole which is where the vote-chain is used.
 
-An interesting difference from [Bitcoin](http://www.bitcoin.org) is that all the data doesn't need to be stored on the blockchain directly, only a proof of the data accuracy.
+An interesting difference from [Bitcoin](http://www.bitcoin.org) is that all the data doesn't need to be stored on the block-chain directly, only a proof of the data accuracy.
 
-Differences with Bitcoin blockchain:
+Differences with Bitcoin block-chain:
 - There will be no data stored on the vote-chain. Instead for each set of data it will have: a hash of the data, a hash of the list of peers and their signatures that verify it.
 - the root-group will sign each new block and state the peers that are in the next root-group that can sign the next block.
 
@@ -279,7 +297,7 @@ Due to the Interpeer design, any node that is currently hosting an interpeer-sit
 
 Also links could point to any other page of the interpeer-site, meaning search engines could index Interpeer as a normal website, transparently.
 
-When someone views a interpeer-site this way, a warning bar would be visible asking them to install the Interpeer plugin for their safety. This would probably be done using an iframe to do the redirection.
+When someone views a interpeer-site this way, a warning bar would be visible asking them to install the Interpeer plug-in for their safety. This would probably be done using an iframe to do the redirection.
 
 If a user stays on one interpeer-site longer than the peer they are using is tasked the job of hosting it, they would begin getting 404 pages. The fix could be java-script that detects the lack of a plug-in and handles page changes by asking [interpeer.net](http://interpeer.net).
 
@@ -306,9 +324,9 @@ These malicious peers could work normally except when they are in a peer-group w
 Another option would be to get 2 peers colluding against the honest peers in a peer-group, which is easier to do. This would often stopped by the peer-rating and “joining cost”.
 
 ### 8.3 51% attack
-This attack is only valid against the blockchain part of Interpeer. Interpeer has central development, so any 51% attack could just be rolled back by a new delta-block authored by the admin if it was needed. making the effect temporary, so therefore not worth doing as there is a delay before funds are allowed to be withdrawn.
+This attack is only valid against the block-chain part of Interpeer. Interpeer has central development, so any 51% attack could just be rolled back by a new delta-block authored by the admin if it was needed. making the effect temporary, so therefore not worth doing as there is a delay before funds are allowed to be withdrawn.
 
-To protect against malicious admin, Interpeer will be open source and all admin changes to the blockchain will not be instant; instead they will be scheduled and all peers have that time to decide to vote against it, if a pre-set percentage vote against it, the change will not be applied.
+To protect against malicious admin, Interpeer will be open source and all admin changes to the block-chain will not be instant; instead they will be scheduled and all peers have that time to decide to vote against it, if a pre-set percentage vote against it, the change will not be applied.
 
 ### 8.4 man-in-the-middle attack
 The seeder is hosting the interpeer-site to the visitor, so in a way it's even better than MITM; the options for the attacker are stealing data or modifying the data.
@@ -363,6 +381,7 @@ Currently there is no system that can host dynamic web2.0 sites in a peer-to-pee
 - [Freenet](http://www.freenetproject.org/)
 
 ### 10.1 Alternatives
+Instead of a P2P network to share the websites, these projects are conserned with hiding normal server-client style websites.
 
 - [TOR](http://www.torproject.org) - hides normal websites
 - [Riffle](https://people.csail.mit.edu/devadas/pubs/riffle.pdf)
@@ -381,4 +400,4 @@ Without standing on the shoulders of giants it would not be possible to dare suc
 ## 13. References
 
 - [IPFS](http://www.ipfs.com) - interesting system to have content addressed peer-to-peer storage.
-- [Bitcoin](http://www.bitcoin.org) - the blockchain technology is pivotal to the network working together.
+- [Bitcoin](http://www.bitcoin.org) - the block-chain technology is pivotal to the network working together.
