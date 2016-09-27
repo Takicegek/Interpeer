@@ -16,10 +16,10 @@ Currently websites are hosted on a physical server that is located by its domain
 The advantage for website hosting is easy to see if you look at the disadvantages of the current Internet client-server model: the server is a single point of failure, low anonymity when creating a website, each visitor downloads from the server not other visitors which is duplicating requests and finally the central control over domain name lookup with ISPs controlling access which limits freedom of speech.
 
 For any system like Interpeer to be successful I see the following requirements:
- - dynamic: the modern internet is web2.0, and no one is going to use a system that isn't. if [Wikipedia](http://www.wikipedia.org) doesn't work on the platform then the idea is basically useless.
- - user migration: people don't understand tech, combined with the network effect, so it must work seamlessly with the standard web.
- - vote on updates: most P2P suffers from a similar problem, centralised development. because often things start well (Google: "don't be evil") and end horribly.
- - website migration: a website must be easily transferred to the platform without too much hassle.
+ - **dynamic:** the modern internet is web2.0, and no one is going to use a system that isn't. if [Wikipedia](http://www.wikipedia.org) doesn't work on the platform then the idea is basically useless.
+ - **user migration:** people don't understand tech, combined with the network effect, so it must work seamlessly with the standard web.
+ - **vote on updates:** most P2P suffers from a similar problem, centralised development. because often things start well (Google: "don't be evil") and end horribly.
+ - **website migration:** a website must be easily transferred to the platform without too much hassle.
 
 ## 2. Key innovations
 Interpeer introduces large innovations to peer-to-peer technology. The significant ones are:
@@ -89,7 +89,7 @@ A server no longer is one fixed computer, but can share the job between many.
 ##### Massive computation :- [Boinc](http://boinc.berkeley.edu):
 Distributed computation, using the spare resources of many computers and combing them.
 
-### 5. Philosophy
+## 5. Philosophy
 Information is power. Since the dawn of civilisation power has been hierarchical; with only very few at the top and everyone else at the bottom. Even the first attempt at a world-wide-web; which was supposed to liberate information didn't really change that; with domain registration centralised, the index (search engines) centralised and moderated, DNS centralised, and the ISPs as the gate keepers.
 
 When peer-to-peer technology was invented (like [bitTorrent](http://www.bittorrent.com) and [Bitcoin](http://www.bitcoin.org)) it changed everything, unlike all previous power structures (pyramid shaped) it was flat; fair; peer-to-peer; people share and are equal. Although the importance of this breakthrough has been missed by most, it's the most important historical event in our life times; finally we have solved the unsolvable; trust without hierarchy. There is no longer a need for a governing body; people can work together as equals only using clever maths to govern the exchanges.
@@ -131,7 +131,7 @@ Because of how peer-groups are selected it means that the chance of colluding pe
 
 If there is an disagreement then ratings of peers are used as well as number of peers on each side of the disagreement to settle which side is correct.
 
-### 6.2.1 Inter-peer-group communication
+#### 6.2.1 Inter-peer-group communication
 Communication is for synchronization to achieve agreement, so each message is signed, and only hashes of the data are needed, also one peer is selected to collate the data and send it back to every peer in the group.
 
 When a peer is leaving the peer-group then they will hand-over the job to another eligible peer.
@@ -151,10 +151,15 @@ An example of a common job would be hosting a interpeer-site; using 5 peers, eac
 
 All jobs are limited by the processing power and memory that can be used by one job slot. If the job exceeds this, it fails (in a way that the script can catch the error and deal with it). If a script needs more than the maximum, it uses more job slots.
 
-### 6.4.1 public jobs
+#### 6.4.1 segmented jobs
+some jobs have too much data, and it can be split into shards. For example the data listing all jobs or listing all peers. In these cases a job can be split into sub jobs, where the code is the same for all, but the data that it's referencing is segmented.
+
+The only difference would be during sychronisation, peers would come to consensus within one segment.
+
+#### 6.4.2 public jobs
 Not all jobs will be paid. Some are needed for the network to function as a whole.
 
-#### 6.4.1.1 global job - vote-chain and job allocation
+##### 6.4.2.1 global job - vote-chain and job allocation
 Each peer keeps copy of the vote-chain. This is needed to validate state data.
 
 With each cycle (defined by the vote-chain block rate) every peer uses the hash of the lasted signed block to determine if they are the "root peers" to sign the next block. But to stop them being selected to be DDoS attacked, they don't publicise this until they have generated and shared the next block.
@@ -163,7 +168,7 @@ As each peer is running the global job, they calculate which jobs they are doing
 
 This job will be paid by minting InterCoin. Which will also provide a consistent flow of InterCoins into the system and reward peers for taking part.
 
-#### 6.4.1.2 unpaid jobs - DNS and IP-lookup
+##### 6.4.2.2 unpaid jobs - DNS and IP-lookup
 New seeders show commitment by doing unpaid work to get a peer-rating so they are more likely to win paid jobs.
 
 Because a peer can prove their own identity using self-signing of their peer ID; no security is needed for translating a peer ID into an IP address. But it would be wasteful for all peers to keep a complete peer list up to date, so one peer-group is tasked with handling a list of peer IP addresses.
@@ -172,7 +177,7 @@ Because DNS is only turning a human-readable domain name into a set of IP addres
 
 Each member of the peer-group can answer DNS or IP-lookup requests without contacting the other peers in the group because each entry has a validity period and is signed by other peers that agree. Any peer can sign it, so when a peer asks for an IP-lookup, if it's valid it will reply with a signature to add.
 
-### 6.4.2 job scheduling
+#### 6.4.3 job scheduling
 In each cycle a peer gets tickets for completing jobs successfully, they can only request that many paid jobs in the next cycle. If they want to increase the amount of jobs, say they have no tickets for example, they can do unpaid work (there is a limit to how much they can request based on how many tickets they have).
 
 If peers try to turn down jobs by not responding, they receive a negative rating. This cancels a previous ticket.
@@ -181,7 +186,7 @@ All peers must have do things at exactly the same time, as many functions (like 
 
 If a peer has bad timing it will fail the handshake to join a peer-group, then after a few bad ratings they will be unable to find work.
 
-### 6.4.3 job hand-over
+#### 6.4.4 job hand-over
 With a continuing task (such as serving an interpeer-site) it is broken into jobs of a certain length for each peer; each peer finishes a job at a different time interval to stagger hand-over. at the end of each job the peer must contact the replacement peer to get rewarded (with virtual currency and positive ratings).
 
 Peers will join a peer-group by doing the necessary handshake ahead of time, so hand-over events happen exactly on schedule.
@@ -197,7 +202,7 @@ A bootstrap reply has this information:
 - Synchronise Interpeer time.
 - vote-chain height.
 
-### 6.5.1 registering a peer
+#### 6.5.1 registering a peer
 Many attacks on peer-to-peer networks involve creating many fake nodes, either to DDoS attack the system or game the rating system / selection process.
 
 The root-peers record the number of jobs completed in total and in the last interval for each peer, which is used to prioritise mature peers when allocating jobs or during disagreements. This creates a "joining cost" as new peers won't be allocated paid / important jobs making it less worthwhile to create fake peers.
@@ -237,14 +242,14 @@ The vote-chain will be used to reference and verify:
 - Peer details (public key, ratings).
 - Job allocations.
 
-### 6.7.1 InterCoin
+#### 6.7.1 InterCoin
 a currency ledger will be referenced from the vote-chain and will be where payments for work are sent.
 
 Some features of the network are done for the good of the network as a whole, and are not paid by uploaders. Although most of this is covered by unpaid jobs, a few examples can't be done this way ([interpeer.net](http://interpeer.net) hosting), so there will be a small tax on InterCoin transactions, this will also mitigate transaction spam.
 
 Because Interpeer functions by having micro-transactions for each job, no tax will be applied to money earned from jobs.
 
-#### 6.7.1.1 deposit
+##### 6.7.1.1 deposit
 Because one of the possible malicious aims is to take money out when it hasn't been properly earned, all earned money will only retrievable after it has matured and the peer has sufficient rating.
 
 So malicious peers would either be forced to do work correctly to get a sufficiently high rating or forgo any payment.
@@ -357,7 +362,7 @@ Currently there is no system that can host dynamic web2.0 sites in a peer-to-pee
 - [Decent](http://www.decent.ch/)
 - [Freenet](http://www.freenetproject.org/)
 
-## 10.1 Alternatives
+### 10.1 Alternatives
 
 - [TOR](http://www.torproject.org) - hides normal websites
 - [Riffle](https://people.csail.mit.edu/devadas/pubs/riffle.pdf)
